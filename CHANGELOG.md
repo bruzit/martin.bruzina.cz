@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.0](https://github.com/bruzit/martin.bruzina.cz/compare/v0.2.0...v0.3.0) (2026-11-18)
+
+### Features
+
+* add legal footer with map links ([a564378](https://github.com/bruzit/martin.bruzina.cz/commit/a564378f708aa80b7bad1dd4de8966c43ceaacfe))
+
 ## [0.2.0](https://github.com/bruzit/martin.bruzina.cz/compare/v0.1.0...v0.2.0) (2026-11-18)
 
 ### Features
