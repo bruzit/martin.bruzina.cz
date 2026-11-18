@@ -4,9 +4,13 @@
   "type": "module",
   "scripts": {
     "build": "nuxt generate",
-    "dev": "nuxt dev"
+    "dev": "nuxt dev",
+    "test": "playwright test"
   },
   "dependencies": {
     "nuxt": "^4.6.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1"
   }
 }
