@@ -24,4 +24,5 @@ const inquiryHref = `mailto:${card.inquiry.email}?${query.toString().replaceAll(
       <p>{{ card.location }}</p>
     </article>
   </main>
+  <SiteFooter />
 </template>
