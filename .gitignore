@@ -1,1 +1,7 @@
+.nuxt/
+.output/
+dist
 megalinter-reports/
+node_modules/
+playwright-report/
+test-results/
