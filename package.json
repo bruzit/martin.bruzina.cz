@@ -1,0 +1,12 @@
+{
+  "name": "martin.bruzina.cz",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt generate",
+    "dev": "nuxt dev"
+  },
+  "dependencies": {
+    "nuxt": "^4.6.4"
+  }
+}
