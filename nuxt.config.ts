@@ -3,15 +3,18 @@ import yaml from "@rollup/plugin-yaml";
 import { parse } from "yaml";
 import type { ZodType } from "zod";
 import { cardSchema } from "./schemas/card";
+import { errorSchema } from "./schemas/error";
 import { footerSchema } from "./schemas/footer";
 
 const validate = (schema: ZodType, file: string) => schema.parse(parse(readFileSync(file, "utf8")));
 validate(cardSchema, "content/card.yaml");
 validate(footerSchema, "content/footer.yaml");
+validate(errorSchema, "content/error.yaml");
 
 export default defineNuxtConfig({
   compatibilityDate: "2026-11-18",
   modules: ["@nuxt/ui"],
+  app: { head: { htmlAttrs: { lang: "en" } } },
   css: ["~/assets/css/main.css"],
   fonts: {
     families: [{ name: "Libre Franklin", provider: "google", weights: [400, 600, 800], subsets: ["latin", "latin-ext"] }],

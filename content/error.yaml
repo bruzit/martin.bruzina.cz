@@ -1,0 +1,11 @@
+notFound:
+  label: HTTP 404
+  heading: No page at
+  text: The link is old or mistyped. Nobody was paged; pick a direction instead.
+  title: Page not found
+failure:
+  label: Error
+  heading: Something went wrong
+  text: This is fine. The page broke, the rest of the site is still here.
+  title: Something went wrong
+home: Home
