@@ -1,6 +1,6 @@
 # Repository Template
 
-[![License](https://img.shields.io/github/license/bruzit/template)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT%20%2B%20proprietary-blue)](#license-and-copyright)
 [![Last commit](https://img.shields.io/github/last-commit/bruzit/template)](https://github.com/bruzit/template/commits)
 [![MegaLinter](https://github.com/bruzit/template/actions/workflows/megalinter.yaml/badge.svg)](https://github.com/bruzit/template/actions/workflows/megalinter.yaml)
 [![Semantic Release](https://github.com/bruzit/template/actions/workflows/semantic-release.yaml/badge.svg)](https://github.com/bruzit/template/actions/workflows/semantic-release.yaml)
@@ -133,8 +133,11 @@ License and copyright holder.
 
 **This repository:**
 
-MIT License: [`LICENSE`](LICENSE)  
-Copyright © 2026 Martin Bružina
+Copyright © 2026 Martin Bružina. [REUSE 3.3](https://reuse.software/spec-3.3/) compliant; [`REUSE.toml`](REUSE.toml) maps paths to licenses:
+
+- Code (components, configuration, tests, workflows): MIT, [`LICENSES/MIT.txt`](LICENSES/MIT.txt).
+- Content, photo, and visual style (`content/`, `public/photo.jpg`, `app/assets/css/`, `app/app.config.ts`): all rights reserved, [`LICENSES/LicenseRef-Proprietary.txt`](LICENSES/LicenseRef-Proprietary.txt).
+- Third party, fetched at build: Bootstrap Icons (MIT), Simple Icons (CC0 1.0), Libre Franklin (SIL OFL 1.1). The Mapy.com mark and other brand marks belong to their owners.
 
 ## References
 

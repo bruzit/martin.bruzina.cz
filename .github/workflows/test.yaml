@@ -23,9 +23,20 @@ jobs:
       - run: npx playwright install --with-deps --only-shell chromium
       - run: npm test
 
+  reuse:
+    name: REUSE
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - run: pipx run reuse lint
+
   required:
     name: Required (Test)
-    needs: [test]
+    needs: [test, reuse]
     if: always()
     runs-on: ubuntu-slim
     permissions: {}
