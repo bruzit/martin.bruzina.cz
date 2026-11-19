@@ -11,8 +11,16 @@ const types: Record<string, string> = {
   ".json": "application/json",
   ".svg": "image/svg+xml",
   ".txt": "text/plain; charset=utf-8",
+  ".xml": "application/xml",
   ".woff2": "font/woff2",
 };
+
+const headers = Object.fromEntries(
+  (await readFile(join(root, "_headers"), "utf8"))
+    .split("\n")
+    .filter((line) => /^\s+\S/.test(line))
+    .map((line) => line.trim().split(/:\s(.*)/s).slice(0, 2)),
+);
 
 const file = async (path: string) => {
   for (const candidate of [path, join(path, "index.html"), `${path}.html`]) {
@@ -24,6 +32,6 @@ createServer(async (request, response) => {
   const path = join(root, normalize(decodeURIComponent(new URL(request.url!, "http://localhost").pathname)));
   const found = path.startsWith(root) ? await file(path) : undefined;
   const served = found ?? join(root, "404.html");
-  response.writeHead(found ? 200 : 404, { "content-type": types[extname(served)] ?? "application/octet-stream" });
+  response.writeHead(found ? 200 : 404, { ...headers, "content-type": types[extname(served)] ?? "application/octet-stream" });
   response.end(await readFile(served));
 }).listen(Number(process.env.PORT ?? 3000));
