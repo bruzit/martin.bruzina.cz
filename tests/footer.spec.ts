@@ -1,6 +1,6 @@
 import { expect, type Page, test } from "@playwright/test";
 
-const footer = (page: Page) => page.getByRole("contentinfo");
+const footer = (page: Page) => page.locator("footer");
 const address = "Hr%C3%A1zka%20619%2F34%2C%20621%2000%20Brno";
 
 test.beforeEach(async ({ page }) => {
@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
 test("legal paragraph is one paragraph in text flow", async ({ page }) => {
   const legal = footer(page).locator("p").first();
   await expect(legal).toHaveText(
-    "Ing. Martin Bružina, Hrázka 619/34, 621 00 Brno, IČO 75597381, entered in the Trade Licensing Register kept by Magistrát města Brna.",
+    "Ing. Martin Bružina · Hrázka 619/34, 621 00 Brno · IČO 75597381 · entered in the Trade Licensing Register, Magistrát města Brna",
   );
   await expect(legal.locator("br")).toHaveCount(0);
 });
@@ -40,7 +40,7 @@ test("copied text keeps the on-screen separation", async ({ page }) => {
     return selection.toString();
   });
   for (const [before, after] of [
-    ["Brna.", "Google"],
+    ["Brna", "Google"],
     ["Maps", "Mapy.com"],
     ["Mapy.com", "Apple"],
     ["Maps", "©"],

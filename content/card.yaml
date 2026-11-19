@@ -1,31 +1,44 @@
 name: Martin Bružina
+photo:
+  src: /photo.jpg
+  alt: Portrait of Martin Bružina
 headline: Platform engineer, DevOps, and SRE · GitOps, IaC, automation · Linux, K8s, GitHub
 bio: >-
   I'm Martin, a platform engineer and SRE from Brno. For 15+ years, I've kept
   production reliable and boring, and I've led engineering teams along the way.
   I help teams automate away toil, and I share, write, and talk about what
   worked and what didn't.
-engagement: Available part-time · remote or on-site in Brno · Czech, English
-inquiry:
-  label: Send an inquiry
-  email: martin@bruzina.cz
-  subject: Inquiry
-  body: |
-    Team size:
-    Stack:
-    What slows the team down:
-contacts:
-  - kind: email
-    label: martin@bruzina.cz
-    href: mailto:martin@bruzina.cz
-  - kind: phone
-    label: +420 775 714 324
-    href: tel:+420775714324
+links:
+  - kind: blog
+    label: Blog, soon
   - kind: linkedin
     label: LinkedIn
     href: https://www.linkedin.com/in/martin-bruzina/
   - kind: github
     label: GitHub
     href: https://github.com/bruzina
-blog: Blog, soon
-location: Brno, Czechia
+consulting:
+  label: Consulting
+  pitch: >-
+    Want a platform that stays boring? I help teams with GitOps, infrastructure
+    as code, CI, and Kubernetes. Please tell me what slows your team down.
+  engagement: Part-time · remote or on-site in Brno · Czech, English
+  inquiry:
+    label: Send an inquiry
+    email: martin@bruzina.cz
+    subject: Consulting inquiry
+    body: |
+      Team size:
+      Stack:
+      What slows you down:
+  note: Consulting only; not looking for a permanent role.
+contact:
+  label: Contact
+  items:
+    - kind: email
+      label: martin@bruzina.cz
+      href: mailto:martin@bruzina.cz
+    - kind: phone
+      label: +420 775 714 324
+      href: tel:+420775714324
+  location: Brno, Czechia

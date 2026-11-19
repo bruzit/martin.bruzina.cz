@@ -7,10 +7,14 @@ test.beforeEach(async ({ context, page }) => {
   await page.goto("/");
 });
 
-test("shows name, headline, bio and location", async ({ page }) => {
+test("shows name, headline, bio, consulting and location", async ({ page }) => {
   await expect(card(page).getByRole("heading", { level: 1 })).toHaveText("Martin Bružina");
   await expect(card(page)).toContainText("Platform engineer, DevOps, and SRE");
   await expect(card(page)).toContainText("I'm Martin, a platform engineer and SRE from Brno.");
+  await expect(card(page).getByRole("heading", { name: "Consulting" })).toBeVisible();
+  await expect(card(page)).toContainText("Part-time · remote or on-site in Brno · Czech, English");
+  await expect(card(page)).toContainText("Consulting only; not looking for a permanent role.");
+  await expect(card(page).getByText("Blog, soon")).toBeVisible();
   await expect(card(page)).toContainText("Brno, Czechia");
 });
 
@@ -30,8 +34,8 @@ test("inquiry opens a pre-filled e-mail", async ({ page }) => {
   const href = await card(page).getByRole("link", { name: "Send an inquiry" }).getAttribute("href");
   const url = new URL(href!);
   expect(url.protocol + url.pathname).toBe("mailto:martin@bruzina.cz");
-  expect(url.searchParams.get("subject")).toBe("Inquiry");
-  expect(url.searchParams.get("body")).toBe("Team size:\nStack:\nWhat slows the team down:\n");
+  expect(url.searchParams.get("subject")).toBe("Consulting inquiry");
+  expect(url.searchParams.get("body")).toBe("Team size:\nStack:\nWhat slows you down:\n");
 });
 
 for (const modifier of [undefined, "ControlOrMeta"] as const) {
@@ -55,14 +59,19 @@ test("copied text keeps the on-screen separation", async ({ page }) => {
   for (const [before, after] of [
     ["Bružina", "Platform"],
     ["GitHub", "I'm"],
-    ["didn't.", "Available"],
-    ["English", "Send"],
-    ["inquiry", "martin@"],
-    ["bruzina.cz", "+420"],
-    ["324", "LinkedIn"],
+    ["didn't.", "Blog"],
+    ["soon", "LinkedIn"],
     ["LinkedIn", "GitHub"],
-    ["GitHub", "Blog"],
-    ["soon", "Brno, Czechia"],
+    ["GitHub", "Consulting"],
+    ["Consulting", "Want"],
+    ["down.", "Part-time"],
+    ["English", "Send"],
+    ["inquiry", "Consulting only"],
+    ["role.", "Contact"],
+    ["Contact", "martin@"],
+    ["bruzina.cz", "+420"],
+    ["324", "Brno"],
+    ["Czechia", "Ing."],
   ]) {
     expect(copied).not.toContain(before + after);
   }
