@@ -11,5 +11,11 @@ validate(footerSchema, "content/footer.yaml");
 
 export default defineNuxtConfig({
   compatibilityDate: "2026-11-18",
+  modules: ["@nuxt/ui"],
+  css: ["~/assets/css/main.css"],
+  fonts: {
+    families: [{ name: "Libre Franklin", provider: "google", weights: [400, 600, 800], subsets: ["latin", "latin-ext"] }],
+  },
+  icon: { serverBundle: "local", clientBundle: { scan: true } },
   vite: { plugins: [yaml()] },
 });

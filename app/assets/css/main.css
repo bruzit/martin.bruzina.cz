@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  --font-sans: "Libre Franklin", system-ui, sans-serif;
+  --color-tango-50: #fff6ee;
+  --color-tango-100: #ffe8d4;
+  --color-tango-200: #ffcc9b;
+  --color-tango-300: #ffb157;
+  --color-tango-400: #ea8127;
+  --color-tango-500: #cc6d1c;
+  --color-tango-600: #ae5a11;
+  --color-tango-700: #8c480e;
+  --color-tango-800: #6b360a;
+  --color-tango-900: #4b2507;
+  --color-tango-950: #3c1d05;
+}
+
+@theme inline {
+  --color-card: var(--card);
+  --color-line: var(--line);
+  --color-link: var(--link);
+  --color-heading: var(--heading);
+}
+
+:root {
+  --card: #ffffff;
+  --line: #e2e0dc;
+  --link: #ae5a11;
+  --heading: #db7015;
+  --ui-bg: #f5f5f5;
+  --ui-text: #0b0c0d;
+  --ui-text-muted: #505257;
+  --ui-text-dimmed: var(--ui-color-neutral-500);
+  --ui-primary: var(--ui-color-primary-600);
+}
+
+.dark {
+  --card: #1b1c1e;
+  --line: #2d2e31;
+  --link: #ea8127;
+  --heading: #ea8127;
+  --ui-bg: #121314;
+  --ui-text: #f3f1ee;
+  --ui-text-muted: #b3b0aa;
+  --ui-text-dimmed: var(--ui-color-neutral-400);
+  --ui-primary: var(--ui-color-primary-400);
+}
+
+:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 2px;
+}
