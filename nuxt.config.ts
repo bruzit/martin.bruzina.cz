@@ -18,7 +18,15 @@ validate(personSchema, "content/person.yaml");
 export default defineNuxtConfig({
   compatibilityDate: "2026-11-18",
   modules: ["@nuxt/ui"],
-  app: { head: { htmlAttrs: { lang: "en" } } },
+  app: {
+    head: {
+      htmlAttrs: { lang: "en" },
+      link: [
+        { rel: "icon", href: "/favicon.ico", sizes: "16x16 32x32" },
+        { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      ],
+    },
+  },
   css: ["~/assets/css/main.css"],
   fonts: {
     families: [{ name: "Libre Franklin", provider: "google", weights: [400, 600, 800], subsets: ["latin", "latin-ext"] }],

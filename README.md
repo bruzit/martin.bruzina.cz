@@ -136,7 +136,7 @@ License and copyright holder.
 Copyright © 2026 Martin Bružina. [REUSE 3.3](https://reuse.software/spec-3.3/) compliant; [`REUSE.toml`](REUSE.toml) maps paths to licenses:
 
 - Code (components, configuration, tests, workflows): MIT, [`LICENSES/MIT.txt`](LICENSES/MIT.txt).
-- Content, photo, and visual style (`content/`, `public/photo.jpg`, `app/assets/css/`, `app/app.config.ts`): all rights reserved, [`LICENSES/LicenseRef-Proprietary.txt`](LICENSES/LicenseRef-Proprietary.txt).
+- Content, photo, icons derived from it, and visual style (`content/`, `public/photo.jpg`, `public/favicon.ico`, `public/apple-touch-icon.png`, `app/assets/css/`, `app/app.config.ts`): all rights reserved, [`LICENSES/LicenseRef-Proprietary.txt`](LICENSES/LicenseRef-Proprietary.txt).
 - Third party, fetched at build: Bootstrap Icons (MIT), Simple Icons (CC0 1.0), Libre Franklin (SIL OFL 1.1). The Mapy.com mark and other brand marks belong to their owners.
 
 ## References
