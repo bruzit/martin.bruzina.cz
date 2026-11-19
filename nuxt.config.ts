@@ -16,6 +16,10 @@ export default defineNuxtConfig({
   fonts: {
     families: [{ name: "Libre Franklin", provider: "google", weights: [400, 600, 800], subsets: ["latin", "latin-ext"] }],
   },
-  icon: { serverBundle: "local", clientBundle: { scan: true } },
+  icon: {
+    serverBundle: "local",
+    clientBundle: { scan: true },
+    customCollections: [{ prefix: "brand", dir: "./app/assets/icons" }],
+  },
   vite: { plugins: [yaml()] },
 });

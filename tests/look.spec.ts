@@ -31,16 +31,17 @@ test("stacks columns on a phone, side by side on a wide screen", async ({ page }
   expect((await consulting().boundingBox())!.x).toBeGreaterThan((await name().boundingBox())!.x + 300);
 });
 
-test("keyboard focus shows a visible ring on every link", async ({ page }) => {
+test("keyboard focus shows a visible ring on every link and button", async ({ page }) => {
   await page.goto("/");
-  const count = await page.getByRole("link").count();
+  const count = (await page.getByRole("link").count()) + (await page.getByRole("button").count());
   for (let i = 0; i < count; i++) {
     await page.keyboard.press("Tab");
     const outline = await page.evaluate(() => {
       const style = getComputedStyle(document.activeElement!);
       return { tag: document.activeElement!.tagName, style: style.outlineStyle, width: style.outlineWidth };
     });
-    expect(outline).toEqual({ tag: "A", style: "solid", width: "3px" });
+    expect(["A", "BUTTON"]).toContain(outline.tag);
+    expect({ style: outline.style, width: outline.width }).toEqual({ style: "solid", width: "3px" });
   }
 });
 
