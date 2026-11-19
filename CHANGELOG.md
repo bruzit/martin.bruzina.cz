@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/bruzit/martin.bruzina.cz/compare/v0.3.0...v0.4.0) (2026-11-19)
+
+### Features
+
+* show address map links in a bubble ([44ec516](https://github.com/bruzit/martin.bruzina.cz/commit/44ec5161b2b27483cc0385beaf115e4657c4a48b))
+* style card with nuxt ui, palette, libre franklin and icons ([a00813f](https://github.com/bruzit/martin.bruzina.cz/commit/a00813fc2901907b8a22e39a5adcdc96cdc2cbe9))
+
 ## [0.3.0](https://github.com/bruzit/martin.bruzina.cz/compare/v0.2.0...v0.3.0) (2026-11-18)
 
 ### Features
