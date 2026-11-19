@@ -1,7 +1,11 @@
 name: Ing. Martin Bružina
 holder: Martin Bružina
 home: https://martin.bruzina.cz/
-address: Hrázka 619/34, 621 00 Brno
+address:
+  street: Hrázka 619/34
+  postalCode: 621 00
+  locality: Brno
+  country: CZ
 ico: "75597381"
 icoHref: https://rzp.gov.cz/portal/en/vyhledani?q=75597381
 register: entered in the Trade Licensing Register, Magistrát města Brna

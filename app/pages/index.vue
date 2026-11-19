@@ -1,9 +1,57 @@
 <script setup lang="ts">
 import data from "~~/content/card.yaml";
+import footerData from "~~/content/footer.yaml";
+import personData from "~~/content/person.yaml";
 import type { Card } from "~~/schemas/card";
+import type { Footer } from "~~/schemas/footer";
+import type { Person } from "~~/schemas/person";
 
 const card = data as Card;
-useHead({ title: card.name });
+const footer = footerData as Footer;
+const person = personData as Person;
+const image = new URL(card.photo.src, person.url).href;
+const contact = (kind: string) => card.contact.items.find((item) => item.kind === kind)!.href;
+useSeoMeta({
+  title: card.name,
+  description: person.description,
+  ogType: "profile",
+  ogTitle: card.name,
+  ogDescription: person.ogDescription,
+  ogUrl: person.url,
+  ogImage: image,
+  profileFirstName: person.givenName,
+  profileLastName: person.familyName,
+});
+useHead({
+  link: [{ rel: "canonical", href: person.url }],
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: card.name,
+        givenName: person.givenName,
+        familyName: person.familyName,
+        jobTitle: person.jobTitle,
+        description: person.description,
+        url: person.url,
+        image,
+        email: contact("email"),
+        telephone: contact("phone").replace("tel:", ""),
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: footer.address.street,
+          postalCode: footer.address.postalCode,
+          addressLocality: footer.address.locality,
+          addressCountry: footer.address.country,
+        },
+        knowsAbout: person.knowsAbout,
+        sameAs: card.links.flatMap((item) => (item.href ? [item.href] : [])),
+      }),
+    },
+  ],
+});
 const { inquiry } = card.consulting;
 const inquiryLink = inquiryHref(inquiry);
 const icons = {

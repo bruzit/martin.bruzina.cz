@@ -3,7 +3,8 @@ import data from "~~/content/footer.yaml";
 import type { Footer } from "~~/schemas/footer";
 
 const footer = data as Footer;
-const address = encodeURIComponent(footer.address);
+const line = `${footer.address.street}, ${footer.address.postalCode} ${footer.address.locality}`;
+const address = encodeURIComponent(line);
 const maps = [
   { label: "Google Maps", icon: "i-simple-icons-googlemaps", href: `https://www.google.com/maps/search/?api=1&query=${address}` },
   { label: "Mapy.com", icon: "i-brand-mapy", href: `https://mapy.com/fnc/v1/search?query=${address}` },
@@ -27,7 +28,7 @@ const card = computed(() => root.value?.closest("article") ?? undefined);
           type="button"
           class="cursor-pointer text-left text-link underline decoration-dotted underline-offset-3 after:content-['_▾'] aria-expanded:after:content-['_▴']"
         >
-          <UIcon name="i-bi-geo-alt" class="me-1 align-[-0.15em]" />{{ footer.address }}
+          <UIcon name="i-bi-geo-alt" class="me-1 align-[-0.15em]" />{{ line }}
         </button>
         <template #content>
           <ul aria-label="Address on a map" class="grid gap-2 px-3.5 py-2.5 whitespace-nowrap">
