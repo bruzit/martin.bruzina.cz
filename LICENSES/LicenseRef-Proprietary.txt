@@ -1,0 +1,7 @@
+All rights reserved.
+
+The copyright holder named in each file's SPDX-FileCopyrightText reserves all
+rights in it. No permission is granted to copy, modify, distribute, or otherwise
+use these files, in whole or in part, beyond what applicable law allows.
+
+Brand marks and logos belong to their owners.
