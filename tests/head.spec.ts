@@ -101,3 +101,18 @@ test("404 page is not indexed and has no canonical", async ({ page }) => {
   await expect(meta(page, "robots")).toHaveAttribute("content", "noindex");
   await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
 });
+
+for (const path of ["/", "/nonsense"]) {
+  test(`${path} links the favicon and touch icon`, async ({ page, request }) => {
+    await page.goto(path);
+    for (const [rel, href, type] of [
+      ["icon", "/favicon.ico", "image/x-icon"],
+      ["apple-touch-icon", "/apple-touch-icon.png", "image/png"],
+    ]) {
+      await expect(page.locator(`link[rel="${rel}"]`)).toHaveAttribute("href", href!);
+      const response = await request.get(href!);
+      expect(response.status()).toBe(200);
+      expect(response.headers()["content-type"]).toBe(type);
+    }
+  });
+}

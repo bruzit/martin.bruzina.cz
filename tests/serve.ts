@@ -6,9 +6,11 @@ const root = ".output/public";
 const types: Record<string, string> = {
   ".css": "text/css",
   ".html": "text/html; charset=utf-8",
+  ".ico": "image/x-icon",
   ".jpg": "image/jpeg",
   ".js": "text/javascript",
   ".json": "application/json",
+  ".png": "image/png",
   ".svg": "image/svg+xml",
   ".txt": "text/plain; charset=utf-8",
   ".xml": "application/xml",

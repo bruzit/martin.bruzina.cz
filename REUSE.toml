@@ -7,7 +7,7 @@ SPDX-FileCopyrightText = "2026 Martin Bružina"
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
-path = ["content/**", "public/photo.jpg", "app/assets/css/**", "app/app.config.ts"]
+path = ["content/**", "public/photo.jpg", "public/favicon.ico", "public/apple-touch-icon.png", "app/assets/css/**", "app/app.config.ts"]
 precedence = "override"
 SPDX-FileCopyrightText = "2026 Martin Bružina"
 SPDX-License-Identifier = "LicenseRef-Proprietary"
