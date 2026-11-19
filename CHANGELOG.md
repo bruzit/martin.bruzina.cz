@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.7.0](https://github.com/bruzit/martin.bruzina.cz/compare/v0.6.0...v0.7.0) (2026-11-19)
+
+### Features
+
+* license content and visual style as all rights reserved, code as mit ([7465d91](https://github.com/bruzit/martin.bruzina.cz/commit/7465d91f547cccc7e5b1bf734d6a762af723c5d3))
+
 ## [0.6.0](https://github.com/bruzit/martin.bruzina.cz/compare/v0.5.0...v0.6.0) (2026-11-19)
 
 ### Features
