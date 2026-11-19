@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.6.0](https://github.com/bruzit/martin.bruzina.cz/compare/v0.5.0...v0.6.0) (2026-11-19)
+
+### Features
+
+* add head tags, json-ld, robots, sitemap and security headers ([bf7e569](https://github.com/bruzit/martin.bruzina.cz/commit/bf7e569651a39ce81d2a58f7fd10cccd498fcda6))
+
 ## [0.5.0](https://github.com/bruzit/martin.bruzina.cz/compare/v0.4.0...v0.5.0) (2026-11-19)
 
 ### Features
