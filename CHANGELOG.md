@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.5.0](https://github.com/bruzit/martin.bruzina.cz/compare/v0.4.0...v0.5.0) (2026-11-19)
+
+### Features
+
+* add 404 signpost and error page ([edb880b](https://github.com/bruzit/martin.bruzina.cz/commit/edb880b060843ba63501a26fc3745ae4744d0e88))
+
 ## [0.4.0](https://github.com/bruzit/martin.bruzina.cz/compare/v0.3.0...v0.4.0) (2026-11-19)
 
 ### Features
