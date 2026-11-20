@@ -67,7 +67,7 @@ const label = "text-xs font-semibold tracking-widest text-muted uppercase";
 
 <template>
   <CardFrame>
-    <div class="grid md:grid-cols-[1.15fr_1fr]">
+    <div class="grid md:grid-cols-[1.15fr_1fr] print:grid-cols-[1.15fr_1fr]">
       <div class="grid min-w-0 content-start gap-4 p-7">
         <img
           :src="card.photo.src"
@@ -82,7 +82,7 @@ const label = "text-xs font-semibold tracking-widest text-muted uppercase";
         </div>
         <p class="max-w-[60ch]">{{ card.bio }}</p>
         <ul class="flex flex-wrap gap-x-5 gap-y-2">
-          <li v-for="item in card.links" :key="item.kind">
+          <li v-for="item in card.links" :key="item.kind" :class="{ 'print:hidden': !item.href }">
             <a v-if="item.href" :href="item.href" :class="link">
               <UIcon :name="icons[item.kind]" class="me-1.5 align-[-0.15em]" />{{ item.label }}
             </a>
@@ -92,7 +92,7 @@ const label = "text-xs font-semibold tracking-widest text-muted uppercase";
           </li>
         </ul>
       </div>
-      <div class="grid min-w-0 content-start gap-6 border-t border-line p-7 md:border-t-0 md:border-l">
+      <div class="grid min-w-0 content-start gap-6 border-t border-line p-7 md:border-t-0 md:border-l print:border-t-0 print:border-l">
         <section aria-labelledby="consulting" class="grid gap-2.5">
           <h2 id="consulting" :class="label">{{ card.consulting.label }}</h2>
           <p>{{ card.consulting.pitch }}</p>

@@ -26,7 +26,7 @@ const card = computed(() => root.value?.closest("article") ?? undefined);
       >
         <button
           type="button"
-          class="cursor-pointer text-left text-link underline decoration-dotted underline-offset-3 after:content-['_▾'] aria-expanded:after:content-['_▴']"
+          class="cursor-pointer text-left text-link underline decoration-dotted underline-offset-3 after:content-['_▾'] print:after:content-none aria-expanded:after:content-['_▴']"
         >
           <UIcon name="i-bi-geo-alt" class="me-1 align-[-0.15em]" />{{ line }}
         </button>
