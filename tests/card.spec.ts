@@ -22,7 +22,7 @@ test("links point to their targets", async ({ page }) => {
   const links = {
     "martin@bruzina.cz": "mailto:martin@bruzina.cz",
     "+420 775 714 324": "tel:+420775714324",
-    LinkedIn: "https://www.linkedin.com/in/martin-bruzina/",
+    LinkedIn: "https://www.linkedin.com/in/martin-bruzina",
     GitHub: "https://github.com/bruzina",
   };
   for (const [name, href] of Object.entries(links)) {

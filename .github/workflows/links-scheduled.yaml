@@ -1,0 +1,27 @@
+---
+name: Links Scheduled
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  links:
+    name: Links
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --root-dir ${{ github.workspace }}/.output/public --no-progress '.output/public/**/*.html'

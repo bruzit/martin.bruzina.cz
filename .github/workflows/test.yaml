@@ -21,6 +21,9 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run validate
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --root-dir ${{ github.workspace }}/.output/public --no-progress '.output/public/**/*.html'
       - run: npx playwright install --with-deps --only-shell chromium
       - run: npm test
 
