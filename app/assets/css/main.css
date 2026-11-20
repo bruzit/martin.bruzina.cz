@@ -51,3 +51,35 @@
   outline: 3px solid var(--link);
   outline-offset: 2px;
 }
+
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+  :root,
+  .dark {
+    --card: #ffffff;
+    --line: #e2e0dc;
+    --link: #ae5a11;
+    --heading: #db7015;
+    --ui-bg: #ffffff;
+    --ui-text: #0b0c0d;
+    --ui-text-muted: #505257;
+    --ui-text-dimmed: var(--ui-color-neutral-500);
+    --ui-text-toned: var(--ui-color-neutral-600);
+    --ui-text-highlighted: var(--ui-color-neutral-900);
+    --ui-text-inverted: #ffffff;
+    --ui-primary: var(--ui-color-primary-600);
+    --ui-bg-muted: var(--ui-color-neutral-50);
+    --ui-bg-elevated: var(--ui-color-neutral-100);
+    --ui-bg-accented: var(--ui-color-neutral-200);
+    --ui-bg-inverted: var(--ui-color-neutral-900);
+    --ui-border: var(--ui-color-neutral-200);
+    --ui-border-muted: var(--ui-color-neutral-200);
+    --ui-border-accented: var(--ui-color-neutral-300);
+    --ui-border-inverted: var(--ui-color-neutral-900);
+    color-scheme: light;
+  }
+}
