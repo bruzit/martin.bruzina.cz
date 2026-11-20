@@ -9,8 +9,8 @@ import { errorSchema } from "./schemas/error";
 import { footerSchema } from "./schemas/footer";
 import { personSchema } from "./schemas/person";
 
-const validate = (schema: ZodType, file: string) => schema.parse(parse(readFileSync(file, "utf8")));
-validate(cardSchema, "content/card.yaml");
+const validate = <T>(schema: ZodType<T>, file: string) => schema.parse(parse(readFileSync(file, "utf8")));
+const card = validate(cardSchema, "content/card.yaml");
 validate(footerSchema, "content/footer.yaml");
 validate(errorSchema, "content/error.yaml");
 validate(personSchema, "content/person.yaml");
@@ -21,6 +21,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: "en" },
+      title: card.name,
       link: [
         { rel: "icon", href: "/favicon.ico", sizes: "16x16 32x32" },
         { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
@@ -38,6 +39,10 @@ export default defineNuxtConfig({
   },
   vite: { plugins: [yaml()] },
   hooks: {
+    // Prefetch links carry `as`, which HTML allows only on preload links.
+    "build:manifest"(manifest) {
+      for (const chunk of Object.values(manifest)) chunk.dynamicImports = [];
+    },
     "nitro:init"(nitro) {
       const hashes = new Set<string>();
       nitro.hooks.hook("prerender:route", (route) => {
