@@ -24,6 +24,7 @@ jobs:
       - uses: lycheeverse/lychee-action@v2
         with:
           args: --offline --root-dir ${{ github.workspace }}/.output/public --no-progress '.output/public/**/*.html'
+      - run: npx lhci autorun
       - run: npx playwright install --with-deps --only-shell chromium
       - run: npm test
 

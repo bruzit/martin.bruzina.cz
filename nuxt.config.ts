@@ -30,7 +30,15 @@ export default defineNuxtConfig({
   },
   css: ["~/assets/css/main.css"],
   fonts: {
-    families: [{ name: "Libre Franklin", provider: "google", weights: [400, 600, 800], subsets: ["latin", "latin-ext"] }],
+    families: [
+      {
+        name: "Libre Franklin",
+        provider: "google",
+        weights: [400, 600, 800],
+        subsets: ["latin", "latin-ext"],
+        preload: { subsets: ["latin", "latin-ext"] },
+      },
+    ],
   },
   icon: {
     serverBundle: "local",
