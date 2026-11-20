@@ -45,7 +45,7 @@ test("card page describes the person in JSON-LD", async ({ page }) => {
       addressLocality: "Brno",
       addressCountry: "CZ",
     },
-    sameAs: ["https://www.linkedin.com/in/martin-bruzina/", "https://github.com/bruzina"],
+    sameAs: ["https://www.linkedin.com/in/martin-bruzina", "https://github.com/bruzina"],
   });
 });
 

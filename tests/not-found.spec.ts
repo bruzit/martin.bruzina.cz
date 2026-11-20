@@ -18,7 +18,7 @@ test("signpost boards point home, to an inquiry, LinkedIn and GitHub", async ({ 
   await expect(boards).toHaveText(["Home", "Send an inquiry", "LinkedIn", "GitHub"]);
   await expect(boards.nth(0)).toHaveAttribute("href", "/");
   await expect(boards.nth(1)).toHaveAttribute("href", /^mailto:martin@bruzina\.cz\?subject=Consulting%20inquiry/);
-  await expect(boards.nth(2)).toHaveAttribute("href", "https://www.linkedin.com/in/martin-bruzina/");
+  await expect(boards.nth(2)).toHaveAttribute("href", "https://www.linkedin.com/in/martin-bruzina");
   await expect(boards.nth(3)).toHaveAttribute("href", "https://github.com/bruzina");
   for (const board of await boards.all()) {
     expect((await board.boundingBox())!.height).toBeGreaterThanOrEqual(24);
