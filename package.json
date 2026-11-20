@@ -5,7 +5,8 @@
   "scripts": {
     "build": "nuxt generate",
     "dev": "nuxt dev",
-    "test": "playwright test"
+    "test": "playwright test",
+    "validate": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only --skip-non-html .output/public"
   },
   "dependencies": {
     "@nuxt/ui": "^4.13.0",
@@ -18,6 +19,7 @@
     "@iconify-json/simple-icons": "^1.2.103",
     "@playwright/test": "^1.65.1",
     "@rollup/plugin-yaml": "^5.0.1",
+    "vnu-jar": "^26.11.20",
     "yaml": "^2.9.1",
     "zod": "^4.6.7"
   }
