@@ -1,137 +1,96 @@
-# Repository Template
+# martin.bruzina.cz
 
 [![License](https://img.shields.io/badge/license-MIT%20%2B%20proprietary-blue)](#license-and-copyright)
-[![Last commit](https://img.shields.io/github/last-commit/bruzit/template)](https://github.com/bruzit/template/commits)
-[![MegaLinter](https://github.com/bruzit/template/actions/workflows/megalinter.yaml/badge.svg)](https://github.com/bruzit/template/actions/workflows/megalinter.yaml)
-[![Semantic Release](https://github.com/bruzit/template/actions/workflows/semantic-release.yaml/badge.svg)](https://github.com/bruzit/template/actions/workflows/semantic-release.yaml)
+[![Last commit](https://img.shields.io/github/last-commit/bruzit/martin.bruzina.cz)](https://github.com/bruzit/martin.bruzina.cz/commits)
+[![MegaLinter](https://github.com/bruzit/martin.bruzina.cz/actions/workflows/megalinter.yaml/badge.svg)](https://github.com/bruzit/martin.bruzina.cz/actions/workflows/megalinter.yaml)
+[![Test](https://github.com/bruzit/martin.bruzina.cz/actions/workflows/test.yaml/badge.svg)](https://github.com/bruzit/martin.bruzina.cz/actions/workflows/test.yaml)
+[![Semantic Release](https://github.com/bruzit/martin.bruzina.cz/actions/workflows/semantic-release.yaml/badge.svg)](https://github.com/bruzit/martin.bruzina.cz/actions/workflows/semantic-release.yaml)
 
-<!-- Badges: license, last commit, then one GitHub workflow badge per required workflow in pipeline order: linting, formatting, verification, unit tests, integration tests, end-to-end tests, release, deployment. -->
-
-Purpose of the project in one sentence or one short paragraph.
-
-**This repository:**
-
-Repository template for BruzIT projects: MegaLinter and semantic-release callers, release configuration, license, security policy and README skeleton.
+Personal web of Martin Bružina: e-business card, CV and blog. Today it is the e-business card, a static [Nuxt](https://nuxt.com/) site; the CV and the blog come later.
 
 ## Features
 
-<!-- Optional: delete when empty. -->
-
-Feature list or key capabilities; subsections as needed.
-
-**This repository:**
-
-- README outline with required and optional sections.
-- MegaLinter on pull requests and weekly: [`.mega-linter.yaml`](.mega-linter.yaml), with markdownlint [`.markdownlint.yaml`](.markdownlint.yaml) and zizmor [`zizmor.yaml`](zizmor.yaml) configurations.
-- semantic-release from Conventional Commits ([`.releaserc.yaml`](.releaserc.yaml)): version, changelog and GitHub release.
+- E-business card: photo, bio, consulting offer, contact, legal footer with the address on a map of your choice.
+- Light and dark theme, following the system; prints on one A4 page, always light.
+- 404 signpost that answers with a real 404 status.
+- Findable: title, description, canonical URL, OpenGraph, JSON-LD `Person`, `robots.txt`, `sitemap.xml`.
+- Security headers for Cloudflare Pages in `_headers`: a CSP that allows only this site's scripts plus hashes of the inline ones, HSTS, and friends.
+- Content in YAML under [`content/`](content/), checked against a schema on every build.
 
 ## Requirements
 
-<!-- Optional: delete when empty. -->
-
-Platforms, tools, dependencies, and versions needed.
-
-**This repository:**
-
-- Platform: GitHub Actions.
-- Dependency: [BruzIT GitHub Actions and Workflows](https://github.com/bruzit/github-actions-and-workflows).
+- [Node.js](https://nodejs.org/) LTS with npm.
+- Local tests: Playwright Chromium with its system libraries; HTML validation also needs Java.
 
 ## Installation and Setup
 
-How to install and set up the project, step by step.
+```shell
+npm ci
+npm run dev
+```
 
-**This repository:**
-
-1. Create the repository from this template, by hand ("Use this template") or as code with [BruzIT GitHub Organization as Code](https://github.com/bruzit/github-organization-as-code), which can also manage its settings, rulesets, environments and secrets.
-2. Set up the GitHub Apps and environments, provisioned by BruzIT GitHub Organization as Code:
-   - `release`: semantic-release ([BruzIT GitHub Actions and Workflows: Use Semantic Release Action](https://github.com/bruzit/github-actions-and-workflows#use-semantic-release-action)).
-   - `autofix`: MegaLinter fixes, `GH_AUTOFIX_APP_ID` variable and `GH_AUTOFIX_APP_PEM_FILE` secret ([BruzIT GitHub Actions and Workflows: Use MegaLinter Workflow](https://github.com/bruzit/github-actions-and-workflows#use-megalinter-workflow)); without it, MegaLinter only reports.
-3. Tag the initial commit `v0.0.0`, so the first release is `0.x` instead of `1.0.0` ([`.releaserc.yaml`](.releaserc.yaml) keeps breaking changes on minor):
-
-   ```shell
-   git tag v0.0.0 "$(git rev-list --max-parents=0 HEAD)" && git push origin v0.0.0
-   ```
-
-4. Make it yours:
-   - In every section, replace the general line and the **This repository:** block with your project's content.
-   - Make the first sentence of the description match the repository's GitHub description.
-   - Search and replace `bruzit/template` in the badge URLs; add a workflow badge per required workflow in pipeline order.
-   - Delete empty optional sections and the HTML comments.
+The dev server runs at <http://localhost:3000>.
 
 ## Usage
 
-Common tasks with minimal examples.
+- Change the texts in [`content/`](content/): `card.yaml` (the card), `footer.yaml` (legal footer), `person.yaml` (head tags and JSON-LD), `error.yaml` (404 and error page). A build fails on invalid data and says which field is wrong.
+- Build the static site into `.output/public`:
 
-**This repository:**
+  ```shell
+  npm run build
+  ```
 
-Copy this outline; replace each section's content (Installation and Setup, step 4).
+- Serve the build the way Cloudflare Pages does, with `_headers` applied and missing pages answered by `404.html`:
 
-## Maintenance
-
-<!-- Optional: delete when empty. -->
-
-How to keep it updated and healthy: updates, upgrades, backup and restore, uninstall.
-
-**This repository:**
-
-- Bump the `@v0` refs on a new major of [BruzIT GitHub Actions and Workflows](https://github.com/bruzit/github-actions-and-workflows).
-- Keep this README aligned with the outline.
-
-## Support
-
-Where to ask for help and report problems; for paid products, the service level.
-
-**This repository:**
-
-Community, best effort; [open a GitHub issue](../../issues).
+  ```shell
+  node tests/serve.ts
+  ```
 
 ## Development
 
-<!-- Optional: delete when empty. -->
-
-Local development environment and project layout.
-
-**This repository:**
-
-Run MegaLinter locally: [BruzIT GitHub Actions and Workflows: Linting](https://github.com/bruzit/github-actions-and-workflows#linting).
+- [`app/`](app/): pages, components, the error page, styles and theme.
+- [`schemas/`](schemas/): zod schemas for the content files.
+- [`headers.ts`](headers.ts): writes `_headers`, with a hash for every inline script, after the build.
+- [`tests/`](tests/): Playwright tests and the static test server.
 
 ## Testing
 
-<!-- Optional: delete when empty. -->
+Build first, then:
 
-How to run checks and tests.
+```shell
+npx playwright install --with-deps chromium
+npm test
+npm run validate
+npx lhci autorun
+```
 
-**This repository:**
+- `npm test`: Playwright with axe; content, links, layout, keyboard focus, print, head tags, CSP, 404.
+- `npm run validate`: Nu Html Checker on every generated page.
+- `npx lhci autorun`: Lighthouse; every category at 1.0 except performance at 0.9 or more, LCP ≤ 2.5 s, CLS ≤ 0.1, TBT ≤ 200 ms.
 
-No unit tests; MegaLinter only (Integration and Deployment).
+CI also checks links with lychee and licensing with `reuse lint`.
 
 ## Integration and Deployment
 
-<!-- Optional: delete when empty. -->
+| Workflow                                                            | Trigger                          | Purpose                                                                                                                     |
+|---------------------------------------------------------------------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| [MegaLinter](.github/workflows/megalinter.yaml)                     | Pull request                     | Lint changed files; required check `Required (MegaLinter)`                                                                  |
+| [MegaLinter Scheduled](.github/workflows/megalinter-scheduled.yaml) | Weekly, Monday 06:00 UTC; manual | Lint the whole codebase                                                                                                     |
+| [Test](.github/workflows/test.yaml)                                 | Pull request                     | Build, validate HTML, check internal links, run Playwright and Lighthouse, lint licensing; required check `Required (Test)` |
+| [Links Scheduled](.github/workflows/links-scheduled.yaml)           | Weekly, Monday 06:00 UTC; manual | Check external links                                                                                                        |
+| [Semantic Release](.github/workflows/semantic-release.yaml)         | Push to `main`                   | Version, changelog and GitHub release via the shared semantic-release action                                                |
 
-Workflows that integrate, release, and deploy the project.
+Deployment to [Cloudflare Pages](https://pages.cloudflare.com/) is planned.
 
-**This repository:**
+## Support
 
-| Workflow                                                            | Trigger                          | Purpose                                                                      |
-|---------------------------------------------------------------------|----------------------------------|------------------------------------------------------------------------------|
-| [MegaLinter](.github/workflows/megalinter.yaml)                     | Pull request                     | Lint changed files; required check `Required (MegaLinter)`                   |
-| [MegaLinter Scheduled](.github/workflows/megalinter-scheduled.yaml) | Weekly, Monday 06:00 UTC; manual | Lint the whole codebase                                                      |
-| [Semantic Release](.github/workflows/semantic-release.yaml)         | Push to `main`                   | Version, changelog and GitHub release via the shared semantic-release action |
+Best effort; [open a GitHub issue](../../issues).
 
 ## Contributing
-
-How to propose changes.
-
-**This repository:**
 
 Open a pull request to `main`. Commits follow the [Conventional Commits 1.0.0 specification](https://www.conventionalcommits.org/en/v1.0.0/), from which semantic-release sets versions and the changelog automatically.
 
 ## License and Copyright
-
-License and copyright holder.
-
-**This repository:**
 
 Copyright © 2026 Martin Bružina. [REUSE 3.3](https://reuse.software/spec-3.3/) compliant; [`REUSE.toml`](REUSE.toml) maps paths to licenses:
 
@@ -141,28 +100,17 @@ Copyright © 2026 Martin Bružina. [REUSE 3.3](https://reuse.software/spec-3.3/)
 
 ## References
 
-<!-- Optional: delete when empty. -->
-
-Related projects and documentation.
-
-**This repository:**
-
+- [Nuxt](https://nuxt.com/docs) and [Nuxt UI](https://ui.nuxt.com/)
 - [BruzIT GitHub Actions and Workflows](https://github.com/bruzit/github-actions-and-workflows)
-- [BruzIT GitHub Organization as Code](https://github.com/bruzit/github-organization-as-code)
+- [BruzIT Repository Template](https://github.com/bruzit/template)
 
 ## Stats
 
-<!-- Optional: delete when empty. -->
-
-Repository figures; stable products add selected usage or customer figures.
-
-**This repository:**
-
-| Metric           | Badges                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Commits          | [![Commits total](https://img.shields.io/github/commit-activity/t/bruzit/template?label=commits%20total)](https://github.com/bruzit/template/commits/main)                                                                                                                                                                                                                                                                             |
-| Issues           | [![Issues open](https://img.shields.io/github/issues/bruzit/template?label=issues)](https://github.com/bruzit/template/issues) [![Issues total](https://img.shields.io/github/issues-search?query=repo%3Abruzit%2Ftemplate%20is%3Aissue&label=issues%20total)](https://github.com/bruzit/template/issues?q=is%3Aissue)                                                                                                                 |
-| Pull requests    | [![Pull requests open, not draft](https://img.shields.io/github/issues-search?query=repo%3Abruzit%2Ftemplate%20is%3Apr%20is%3Aopen%20draft%3Afalse&label=PRs%20open)](https://github.com/bruzit/template/pulls?q=is%3Apr+is%3Aopen+draft%3Afalse) [![Pull requests total](https://img.shields.io/github/issues-search?query=repo%3Abruzit%2Ftemplate%20is%3Apr&label=PRs%20total)](https://github.com/bruzit/template/pulls?q=is%3Apr) |
-| Checks on `main` | [![Checks on main](https://img.shields.io/github/check-runs/bruzit/template/main?label=checks%20%28main%29)](https://github.com/bruzit/template/actions?query=branch%3Amain)                                                                                                                                                                                                                                                           |
-| Releases         | [![Latest release](https://img.shields.io/github/v/release/bruzit/template)](https://github.com/bruzit/template/releases/latest) [![Commits since latest release](https://img.shields.io/github/commits-since/bruzit/template/latest)](https://github.com/bruzit/template/releases)                                                                                                                                                    |
-| Community        | [![Stargazers](https://img.shields.io/github/stars/bruzit/template)](https://github.com/bruzit/template/stargazers) [![Forks](https://img.shields.io/github/forks/bruzit/template)](https://github.com/bruzit/template/forks) [![Contributors](https://img.shields.io/github/contributors/bruzit/template)](https://github.com/bruzit/template/graphs/contributors)                                                                    |
+| Metric           | Badges                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Commits          | [![Commits total](https://img.shields.io/github/commit-activity/t/bruzit/martin.bruzina.cz?label=commits%20total)](https://github.com/bruzit/martin.bruzina.cz/commits/main)                                                                                                                                                                                                                                                                                               |
+| Issues           | [![Issues open](https://img.shields.io/github/issues/bruzit/martin.bruzina.cz?label=issues)](https://github.com/bruzit/martin.bruzina.cz/issues) [![Issues total](https://img.shields.io/github/issues-search?query=repo%3Abruzit%2Fmartin.bruzina.cz%20is%3Aissue&label=issues%20total)](https://github.com/bruzit/martin.bruzina.cz/issues?q=is%3Aissue)                                                                                                                 |
+| Pull requests    | [![Pull requests open, not draft](https://img.shields.io/github/issues-search?query=repo%3Abruzit%2Fmartin.bruzina.cz%20is%3Apr%20is%3Aopen%20draft%3Afalse&label=PRs%20open)](https://github.com/bruzit/martin.bruzina.cz/pulls?q=is%3Apr+is%3Aopen+draft%3Afalse) [![Pull requests total](https://img.shields.io/github/issues-search?query=repo%3Abruzit%2Fmartin.bruzina.cz%20is%3Apr&label=PRs%20total)](https://github.com/bruzit/martin.bruzina.cz/pulls?q=is%3Apr) |
+| Checks on `main` | [![Checks on main](https://img.shields.io/github/check-runs/bruzit/martin.bruzina.cz/main?label=checks%20%28main%29)](https://github.com/bruzit/martin.bruzina.cz/actions?query=branch%3Amain)                                                                                                                                                                                                                                                                             |
+| Releases         | [![Latest release](https://img.shields.io/github/v/release/bruzit/martin.bruzina.cz)](https://github.com/bruzit/martin.bruzina.cz/releases/latest) [![Commits since latest release](https://img.shields.io/github/commits-since/bruzit/martin.bruzina.cz/latest)](https://github.com/bruzit/martin.bruzina.cz/releases)                                                                                                                                                    |
+| Community        | [![Stargazers](https://img.shields.io/github/stars/bruzit/martin.bruzina.cz)](https://github.com/bruzit/martin.bruzina.cz/stargazers) [![Forks](https://img.shields.io/github/forks/bruzit/martin.bruzina.cz)](https://github.com/bruzit/martin.bruzina.cz/forks) [![Contributors](https://img.shields.io/github/contributors/bruzit/martin.bruzina.cz)](https://github.com/bruzit/martin.bruzina.cz/graphs/contributors)                                                  |
