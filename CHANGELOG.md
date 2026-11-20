@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.8.0](https://github.com/bruzit/martin.bruzina.cz/compare/v0.7.0...v0.8.0) (2026-11-20)
+
+### Features
+
+* add favicon and touch icon from photo ([7d21071](https://github.com/bruzit/martin.bruzina.cz/commit/7d210716b472194c20e76942709bc85464b5e6bd))
+
 ## [0.7.0](https://github.com/bruzit/martin.bruzina.cz/compare/v0.6.0...v0.7.0) (2026-11-19)
 
 ### Features
