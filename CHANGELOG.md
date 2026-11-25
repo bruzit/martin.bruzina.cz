@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.10.0](https://github.com/bruzit/martin.bruzina.cz/compare/v0.9.0...v0.10.0) (2026-11-25)
+
+### Features
+
+* deploy to cloudflare pages ([23a9694](https://github.com/bruzit/martin.bruzina.cz/commit/23a9694588f94f56ec707799b81a1607a0cb070b))
+
 ## [0.9.0](https://github.com/bruzit/martin.bruzina.cz/compare/v0.8.0...v0.9.0) (2026-11-20)
 
 ### Features
