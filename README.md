@@ -79,8 +79,9 @@ CI also checks links with lychee and licensing with `reuse lint`.
 | [Test](.github/workflows/test.yaml)                                 | Pull request                     | Build, validate HTML, check internal links, run Playwright and Lighthouse, lint licensing; required check `Required (Test)` |
 | [Links Scheduled](.github/workflows/links-scheduled.yaml)           | Weekly, Monday 06:00 UTC; manual | Check external links                                                                                                        |
 | [Semantic Release](.github/workflows/semantic-release.yaml)         | Push to `main`                   | Version, changelog and GitHub release via the shared semantic-release action                                                |
+| [Deploy](.github/workflows/deploy.yaml)                             | Pull request; push to `main`     | Build, test and deploy to Cloudflare Pages: a smoke-checked preview per pull request, production from `main`                |
 
-Deployment to [Cloudflare Pages](https://pages.cloudflare.com/) is planned.
+Deployment to [Cloudflare Pages](https://pages.cloudflare.com/) by Direct Upload with wrangler.
 
 ## Support
 
