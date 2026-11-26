@@ -14,7 +14,7 @@ Personal web of Martin Bružina: e-business card, CV and blog. Today it is the e
 - Light and dark theme, following the system; prints on one A4 page, always light.
 - 404 signpost that answers with a real 404 status.
 - Findable: title, description, canonical URL, OpenGraph, JSON-LD `Person`, `robots.txt`, `sitemap.xml`.
-- Security headers for Cloudflare Pages in `_headers`: a CSP that allows only this site's scripts plus hashes of the inline ones, HSTS, and friends.
+- Security headers for Cloudflare Pages in `_headers`: a Content Security Policy (CSP) that allows only this site's scripts plus hashes of the inline ones, HSTS (HTTPS only), and friends.
 - Content in YAML under [`content/`](content/), checked against a schema on every build.
 
 ## Requirements
@@ -45,6 +45,10 @@ The dev server runs at <http://localhost:3000>.
   ```shell
   node tests/serve.ts
   ```
+
+## Support
+
+[Open a GitHub issue](../../issues). I answer best effort, as a community project.
 
 ## Development
 
@@ -81,15 +85,11 @@ CI also checks links with lychee and licensing with `reuse lint`.
 | [Semantic Release](.github/workflows/semantic-release.yaml)         | Push to `main`                   | Version, changelog and GitHub release via the shared semantic-release action                                                |
 | [Deploy](.github/workflows/deploy.yaml)                             | Pull request; push to `main`     | Build, test and deploy to Cloudflare Pages: a smoke-checked preview per pull request, production from `main`                |
 
-Deployment to [Cloudflare Pages](https://pages.cloudflare.com/) by Direct Upload with wrangler.
-
-## Support
-
-Best effort; [open a GitHub issue](../../issues).
+Deploy uploads the build to [Cloudflare Pages](https://pages.cloudflare.com/) with wrangler, the Cloudflare CLI (Direct Upload).
 
 ## Contributing
 
-Open a pull request to `main`. Commits follow the [Conventional Commits 1.0.0 specification](https://www.conventionalcommits.org/en/v1.0.0/), from which semantic-release sets versions and the changelog automatically.
+Open a pull request to `main`. Write commits per the [Conventional Commits 1.0.0 specification](https://www.conventionalcommits.org/en/v1.0.0/); semantic-release sets the version and changelog from them.
 
 ## License and Copyright
 
